@@ -1,0 +1,71 @@
+package com.fq.inpaokeuse.activity;
+
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+
+import com.fq.inpaokeuse.R;
+import com.fq.inpaokeuse.util.PhoneUtil;
+import com.fq.inpaokeuse.util.UIHelper;
+
+/**
+ * @author fengqing
+ * @date 2018/1/22
+ */
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "MainActivity";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        //设置没有标题
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        //设置全屏
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.e(TAG, "onCreate: 屏幕高度(不包含状态栏)=" + PhoneUtil.getScreenHeight());//1920
+
+        View decorView = getWindow().getDecorView();
+
+        Rect rect = new Rect();
+        decorView.getWindowVisibleDisplayFrame(rect);
+        int statusBarHeight = rect.top;
+        Log.e(TAG, "onWindowFocusChanged: 状态栏高度statusBarHeight=" + statusBarHeight);//60
+
+        int decorViewHeight = decorView.getHeight();
+        Log.e(TAG, "onCreate: DecorView高度=" + decorViewHeight);//1920
+
+        int contentTop = getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
+        Log.e(TAG, "onWindowFocusChanged: 内容顶部contentTop=" + contentTop);//168
+
+        int titleBarHeight = contentTop - statusBarHeight;
+        Log.e(TAG, "onWindowFocusChanged: 标题栏titleBarHeight=" + titleBarHeight);//108
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_to_zhiHu:
+                UIHelper.showActivity(this, ZhiHuHeadActivity.class);
+                break;
+            case R.id.btn_to_animation:
+                UIHelper.showActivity(this, AnimationActivity.class);
+                break;
+            case R.id.btn_to_3d_animation:
+                UIHelper.showActivity(this, Animation3DActivity.class);
+                break;
+            default:
+                break;
+        }
+    }
+}
