@@ -22,6 +22,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class GlideTestActivity extends AppCompatActivity {
 
+
     private Context mContext;
     private ImageView imageView;
     private String url = "http://guolin.tech/book.png";
