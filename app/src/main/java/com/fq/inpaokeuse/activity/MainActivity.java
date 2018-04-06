@@ -64,6 +64,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_3d_animation:
                 UIHelper.showActivity(this, Animation3DActivity.class);
                 break;
+            case R.id.btn_to_contact_list:
+                UIHelper.showActivity(this, ContactsListActivity.class);
+                break;
+            case R.id.btn_to_define_scale:
+                UIHelper.showActivity(this, DefineScaleActivity.class);
+                break;
+            case R.id.btn_to_glide:
+                UIHelper.showActivity(this, GlideTestActivity.class);
+                break;
+            case R.id.btn_to_uil:
+                UIHelper.showActivity(this, UniversalImageLoaderTestActivity.class);
+                break;
+            case R.id.btn_to_toutiao:
+                UIHelper.showActivity(this, TouTiaoHeadActivity.class);
+                break;
+            case R.id.btn_to_camera:
+                UIHelper.showActivity(this, CameraActivity.class);
+                break;
             default:
                 break;
         }

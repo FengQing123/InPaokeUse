@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fq.inpaokeuse">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -20,6 +23,12 @@
         <activity android:name=".activity.ZhiHuHeadActivity"></activity>
         <activity android:name=".activity.AnimationActivity"></activity>
         <activity android:name=".activity.Animation3DActivity"></activity>
+        <activity android:name=".activity.ContactsListActivity"></activity>
+        <activity android:name=".activity.DefineScaleActivity"></activity>
+        <activity android:name=".activity.GlideTestActivity"></activity>
+        <activity android:name=".activity.UniversalImageLoaderTestActivity" />
+        <activity android:name=".activity.TouTiaoHeadActivity" />
+        <activity android:name=".activity.CameraActivity" />
     </application>
 
 </manifest>

@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:onClick="animator"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/reward_rotate" />
 
 </RelativeLayout>

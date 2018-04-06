@@ -9,6 +9,7 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.LinearInterpolator;
 
 /**
  * @author fengqing
@@ -27,12 +28,16 @@ public class AnimatorUtil {
     }
 
     /**
-     * XY轴旋转
+     * 中心点旋转
      *
      * @param view
      */
     public static void ObjectAnimatorRotation(View view) {
-        ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360f).setDuration(3000).start();
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360f);
+        animator.setDuration(2000);
+        animator.setRepeatCount(ObjectAnimator.INFINITE);//重复
+        animator.setInterpolator(new LinearInterpolator());//匀速，不停顿
+        animator.start();
     }
 
     /**
