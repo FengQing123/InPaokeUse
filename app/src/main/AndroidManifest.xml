@@ -29,6 +29,9 @@
         <activity android:name=".activity.UniversalImageLoaderTestActivity" />
         <activity android:name=".activity.TouTiaoHeadActivity" />
         <activity android:name=".activity.CameraActivity" />
+        <activity android:name=".activity.PullShowActivity" />
+        <activity android:name=".activity.GoMarketActivity"/>
+        <activity android:name=".activity.ChartViewActivity"/>
     </application>
 
 </manifest>

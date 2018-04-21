@@ -1,6 +1,7 @@
 package com.fq.inpaokeuse.util;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
@@ -56,5 +57,14 @@ public class PhoneUtil {
             scale = context.getResources().getDisplayMetrics().density;
         }
         return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 获取手机厂商
+     *
+     * @return
+     */
+    public static String getPhoneBrand() {
+        return Build.BRAND;
     }
 }

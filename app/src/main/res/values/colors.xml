@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="main_blue">#5DAFFC</color>
+    <color name="black_color">#4d4d4d</color>
+    <color name="button_click">#4691E9</color>
+    <color name="white">#ffffffff</color>
+    <color name="line_color_1">#f1f1f1</color>
+
+    <color name="drop_pop_menu_bg_color">#a0000000</color>
+    <color name="weight_color">#5daffc</color>
 </resources>

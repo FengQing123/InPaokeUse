@@ -82,6 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_camera:
                 UIHelper.showActivity(this, CameraActivity.class);
                 break;
+            case R.id.btn_to_pullShow:
+                UIHelper.showActivity(this, PullShowActivity.class);
+                break;
+            case R.id.btn_to_goMarket:
+                UIHelper.showActivity(this, GoMarketActivity.class);
+                break;
+            case R.id.btn_to_chartView:
+                UIHelper.showActivity(this, ChartViewActivity.class);
+                break;
             default:
                 break;
         }

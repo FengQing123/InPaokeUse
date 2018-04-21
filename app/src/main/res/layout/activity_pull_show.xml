@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--F版跑步机和体脂称正在称重页面(未连接)-->
+    <LinearLayout
+        android:id="@+id/ll_f_fatScale_to_weight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/ll_blue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跑步机"
+                android:textColor="@color/black_color" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/treadmill" />
+
+            <TextView
+                android:id="@+id/tv_connect_treadmill"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_shape"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="连接跑步机"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/line_color_1" />
+
+        <LinearLayout
+            android:id="@+id/ll_red"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="体脂称"
+                android:textColor="@color/black_color" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/fat_scale_weighting" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
