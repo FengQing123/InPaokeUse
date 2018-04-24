@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">InPaokeUse</string>
+
+    <string-array name="BmiLevel">
+        <item>偏瘦</item>
+        <item>标准</item>
+        <item>过重</item>
+        <item>肥胖</item>
+    </string-array>
 </resources>

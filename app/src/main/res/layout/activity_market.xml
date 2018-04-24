@@ -13,10 +13,21 @@
         android:text="go to market" />
 
     <TextView
-        android:text="hhhhhhh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="hhhhhhh"
         android:textSize="30sp"
         tool:text="我是Textview" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/white">
+
+        <com.fq.inpaokeuse.widget.MeasureLevelProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/ring_white" />
+    </LinearLayout>
 
 </LinearLayout>

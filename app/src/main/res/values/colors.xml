@@ -11,4 +11,18 @@
 
     <color name="drop_pop_menu_bg_color">#a0000000</color>
     <color name="weight_color">#5daffc</color>
+
+    <!--偏瘦、低、偏小-->
+    <color name="measure_lean_lower">#5daffc</color>
+    <!--标准、正常-->
+    <color name="measure_standard_normal">#46cc46</color>
+    <!--过重、偏胖、高、偏高、偏大-->
+    <color name="measure_over_higher">#fd993d</color>
+    <!--肥胖、过高-->
+    <color name="measure_too_higher">#fc5461</color>
+
+    <color name="black_333333">#333333</color>
+    <color name="black_999999">#999999</color>
+    <color name="ring_white">#cde9ff</color>
+
 </resources>
