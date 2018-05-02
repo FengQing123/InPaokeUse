@@ -9,15 +9,22 @@
     <!--android:layout_height="match_parent" />-->
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/line_chart_weight"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/line_chart_fat"

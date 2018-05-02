@@ -1,6 +1,8 @@
 package com.fq.inpaokeuse.widget;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
@@ -36,10 +38,11 @@ public class MeasureLevelProgressBar extends View {
     //段
     private int section = 4;
 
-    Paint mLowerPaint;
-    Paint mStandardPaint;
-    Paint mOverHigherPaint;
-    Paint mTooHigherPaint;
+    Paint mLinePaint;
+    //    Paint mLowerPaint;
+//    Paint mStandardPaint;
+//    Paint mOverHigherPaint;
+//    Paint mTooHigherPaint;
     Paint mTopDescPaint;
     Paint mBottomDescPaint;
     Paint mTrianglePaint;
@@ -63,25 +66,29 @@ public class MeasureLevelProgressBar extends View {
     private void initView(Context context) {
         mContext = context;
 
-        mLowerPaint = new Paint();
-        mLowerPaint.setAntiAlias(true);
-        mLowerPaint.setStrokeWidth(mPaintStrokeWidth);
-        mLowerPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_lean_lower));
+        mLinePaint = new Paint();
+        mLinePaint.setAntiAlias(true);
+        mLinePaint.setStrokeWidth(mPaintStrokeWidth);
 
-        mStandardPaint = new Paint();
-        mStandardPaint.setAntiAlias(true);
-        mStandardPaint.setStrokeWidth(mPaintStrokeWidth);
-        mStandardPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_standard_normal));
-
-        mOverHigherPaint = new Paint();
-        mOverHigherPaint.setAntiAlias(true);
-        mOverHigherPaint.setStrokeWidth(mPaintStrokeWidth);
-        mOverHigherPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_over_higher));
-
-        mTooHigherPaint = new Paint();
-        mTopDescPaint.setAntiAlias(true);
-        mTooHigherPaint.setStrokeWidth(mPaintStrokeWidth);
-        mTooHigherPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_too_higher));
+//        mLowerPaint = new Paint();
+//        mLowerPaint.setAntiAlias(true);
+//        mLowerPaint.setStrokeWidth(mPaintStrokeWidth);
+//        mLowerPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_lean_lower));
+//
+//        mStandardPaint = new Paint();
+//        mStandardPaint.setAntiAlias(true);
+//        mStandardPaint.setStrokeWidth(mPaintStrokeWidth);
+//        mStandardPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_standard_normal));
+//
+//        mOverHigherPaint = new Paint();
+//        mOverHigherPaint.setAntiAlias(true);
+//        mOverHigherPaint.setStrokeWidth(mPaintStrokeWidth);
+//        mOverHigherPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_over_higher));
+//
+//        mTooHigherPaint = new Paint();
+//        mTooHigherPaint.setAntiAlias(true);
+//        mTooHigherPaint.setStrokeWidth(mPaintStrokeWidth);
+//        mTooHigherPaint.setColor(ContextCompat.getColor(mContext, R.color.measure_too_higher));
 
         mTopDescPaint = new Paint();
         mTopDescPaint.setAntiAlias(true);
@@ -139,23 +146,55 @@ public class MeasureLevelProgressBar extends View {
                 float sectionWidth = trueWidth / 4;
                 float y = mHeight - marginBottom;
                 //画线条
-                canvas.drawLine(marginLR, y, marginLR + sectionWidth, y, mLowerPaint);
-                canvas.drawLine(marginLR + sectionWidth, y, marginLR + sectionWidth * 2, y, mStandardPaint);
-                canvas.drawLine(marginLR + sectionWidth * 2, y, marginLR + sectionWidth * 3, y, mOverHigherPaint);
-                canvas.drawLine(marginLR + sectionWidth * 3, y, marginLR + sectionWidth * 4, y, mTooHigherPaint);
+                drawLines(canvas, marginLR, y, marginLR + sectionWidth, y, R.color.measure_lean_lower);
+                drawLines(canvas, marginLR + sectionWidth, y, marginLR + sectionWidth * 2, y, R.color.measure_standard_normal);
+                drawLines(canvas, marginLR + sectionWidth * 2, y, marginLR + sectionWidth * 3, y, R.color.measure_over_higher);
+                drawLines(canvas, marginLR + sectionWidth * 3, y, marginLR + sectionWidth * 4, y, R.color.measure_too_higher);
 
                 //标底部文字
                 String[] level = getResources().getStringArray(R.array.BmiLevel);
-                int margin = PhoneUtil.dip2px(mContext, 15);
+                int margin = getMargin(15);
                 canvas.drawText(level[0], marginLR + sectionWidth / 2, y + mPaintStrokeWidth + margin, mBottomDescPaint);
                 canvas.drawText(level[1], marginLR + sectionWidth + sectionWidth / 2, y + mPaintStrokeWidth + margin, mBottomDescPaint);
                 canvas.drawText(level[2], marginLR + 2 * sectionWidth + sectionWidth / 2, y + mPaintStrokeWidth + margin, mBottomDescPaint);
                 canvas.drawText(level[3], marginLR + 3 * sectionWidth + sectionWidth / 2, y + mPaintStrokeWidth + margin, mBottomDescPaint);
+
+                //顶部箭头和文字
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_blue_lower);
+                int margin2 = getMargin(10);
+                int x2 = (int) (marginLR + sectionWidth / 2);
+                int y2 = mHeight - marginBottom - mPaintStrokeWidth - margin2;
+                canvas.drawBitmap(bitmap, x2 - bitmap.getWidth() / 2, y2, mTopDescPaint);
+                canvas.drawText(level[0], x2, y2 - bitmap.getHeight(), mTopDescPaint);
 
                 break;
             default:
                 break;
 
         }
+    }
+
+    /**
+     * 画颜色线条
+     *
+     * @param canvas
+     * @param startX
+     * @param startY
+     * @param stopX
+     * @param stopY
+     * @param color
+     */
+    protected void drawLines(Canvas canvas, float startX, float startY, float stopX, float stopY, int color) {
+        if (mContext != null) {
+            mLinePaint.setColor(ContextCompat.getColor(mContext, color));
+            canvas.drawLine(startX, startY, stopX, stopY, mLinePaint);
+        }
+    }
+
+    protected int getMargin(int dp) {
+        if (mContext != null) {
+            return PhoneUtil.dip2px(mContext, dp);
+        }
+        return 10;
     }
 }
