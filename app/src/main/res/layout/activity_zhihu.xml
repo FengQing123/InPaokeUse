@@ -6,6 +6,11 @@
     <com.fq.inpaokeuse.widget.HeartRateDefineChart
         android:id="@+id/heartRate_defineChart"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.fq.inpaokeuse.widget.CircleWaveView
+        android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
