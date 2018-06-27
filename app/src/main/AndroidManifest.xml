@@ -32,6 +32,7 @@
         <activity android:name=".activity.PullShowActivity" />
         <activity android:name=".activity.GoMarketActivity"/>
         <activity android:name=".activity.ChartViewActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
     </application>
 
 </manifest>

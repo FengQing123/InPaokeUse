@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_chartView:
                 UIHelper.showActivity(this, ChartViewActivity.class);
                 break;
+            case R.id.btn_to_search:
+                UIHelper.showActivity(this, SearchActivity.class);
+                break;
             default:
                 break;
         }

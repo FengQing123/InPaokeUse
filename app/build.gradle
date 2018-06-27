@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.fq.inpaokeuse"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -35,4 +35,6 @@ dependencies {
     //UIL图片库的使用
     implementation files('libs/universal-image-loader-1.9.5.jar')
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    //搜索框
+    implementation 'com.carson_ho:SearchLayout:1.0.1'
 }
