@@ -13,13 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".mvp.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ZhiHuHeadActivity"></activity>
         <activity android:name=".activity.AnimationActivity"></activity>
         <activity android:name=".activity.Animation3DActivity"></activity>
@@ -30,9 +31,10 @@
         <activity android:name=".activity.TouTiaoHeadActivity" />
         <activity android:name=".activity.CameraActivity" />
         <activity android:name=".activity.PullShowActivity" />
-        <activity android:name=".activity.GoMarketActivity"/>
-        <activity android:name=".activity.ChartViewActivity"/>
-        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.GoMarketActivity" />
+        <activity android:name=".activity.ChartViewActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".mvp.MActivity" />
     </application>
 
 </manifest>
