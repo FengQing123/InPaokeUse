@@ -46,4 +46,12 @@
             <enum name="end" value="3" />
         </attr>
     </declare-styleable>
+
+
+    <declare-styleable name="MyViewPagerIndicator">
+        <attr name="item_count" format="integer" />
+        <attr name="item_color_select" format="color" />
+        <attr name="item_color_normal" format="color" />
+        <attr name="item_text_size" format="dimension" />
+    </declare-styleable>
 </resources>

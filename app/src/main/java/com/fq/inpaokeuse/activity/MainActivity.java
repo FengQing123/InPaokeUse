@@ -10,6 +10,8 @@ import android.view.Window;
 import com.fq.inpaokeuse.R;
 import com.fq.inpaokeuse.util.PhoneUtil;
 import com.fq.inpaokeuse.util.UIHelper;
+import com.fq.inpaokeuse.viewpager.ViewpagerActivity;
+import com.fq.inpaokeuse.viewpager.WeiboViewPagerActivity;
 
 /**
  * @author fengqing
@@ -28,6 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        //设置全屏
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.gc();
     }
 
     @Override
@@ -55,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_to_define_view:
+                UIHelper.showActivity(this, DefinedViewActivity.class);
+                break;
             case R.id.btn_to_zhiHu:
                 UIHelper.showActivity(this, ZhiHuHeadActivity.class);
                 break;
@@ -93,6 +104,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_search:
                 UIHelper.showActivity(this, SearchActivity.class);
+                break;
+            case R.id.btn_to_viewpager:
+                UIHelper.showActivity(this, ViewpagerActivity.class);
+                break;
+            case R.id.btn_to_weibo:
+                UIHelper.showActivity(this, WeiboViewPagerActivity.class);
+                break;
+            case R.id.btn_to_thread:
+                UIHelper.showActivity(this, ThreadTestActivity.class);
                 break;
             default:
                 break;

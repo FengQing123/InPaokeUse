@@ -37,4 +37,5 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     //搜索框
     implementation 'com.carson_ho:SearchLayout:1.0.1'
+    implementation project(':viewpagerLibrary')
 }
