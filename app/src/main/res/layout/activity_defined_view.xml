@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.fq.inpaokeuse.widget.DefinedView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <com.fq.inpaokeuse.widget.DefinedRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+        <com.fq.inpaokeuse.widget.DefinedImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher" />
+
+    </com.fq.inpaokeuse.widget.DefinedRelativeLayout>
+
+</RelativeLayout>

@@ -1,7 +1,5 @@
 package com.fq.inpaokeuse.util;
 
-import java.util.HashMap;
-
 /**
  * @author fengqing
  * @date 2018/1/18
@@ -10,6 +8,18 @@ import java.util.HashMap;
 
 public class Test {
     public static void main(String[] args) {
-        HashMap<String ,Integer> map=new HashMap<>();
+        TestCodeBlock block1 = new TestCodeBlock();
+        block1.doMethod();
+
+        TestCodeBlock block2 = new TestCodeBlock();
+        block2.doMethod();
+    }
+
+    static {
+        System.out.println("---static---");
+    }
+
+    {
+        System.out.println("---non static---");
     }
 }
