@@ -42,6 +42,7 @@
         <activity android:name=".viewpager.WeiboViewPagerActivity" />
         <activity android:name=".activity.ThreadTestActivity" />
         <activity android:name=".activity.SwTestActivity"/>
+        <activity android:name=".activity.ConstraintLayoutTestActivity"/>
     </application>
 
 </manifest>
