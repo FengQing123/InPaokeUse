@@ -37,6 +37,12 @@ public class PhoneUtil {
         return getDisplayMetrics().heightPixels;
     }
 
+
+    public static int getPhoneDpi() {
+        return getDisplayMetrics().densityDpi;
+    }
+
+
     /**
      * A structure describing general information about a display, such as its
      * size, density, and font scaling.

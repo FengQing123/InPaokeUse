@@ -41,6 +41,7 @@
         <activity android:name=".viewpager.ViewpagerActivity" />
         <activity android:name=".viewpager.WeiboViewPagerActivity" />
         <activity android:name=".activity.ThreadTestActivity" />
+        <activity android:name=".activity.SwTestActivity"/>
     </application>
 
 </manifest>

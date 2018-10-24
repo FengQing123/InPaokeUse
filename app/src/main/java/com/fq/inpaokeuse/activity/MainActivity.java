@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_thread:
                 UIHelper.showActivity(this, ThreadTestActivity.class);
                 break;
+            case R.id.btn_to_sw:
+                UIHelper.showActivity(this, SwTestActivity.class);
+                break;
             default:
                 break;
         }
