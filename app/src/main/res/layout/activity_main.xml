@@ -141,5 +141,12 @@
             android:onClick="onClick"
             android:text="ConstraintLayout测试" />
 
+        <Button
+            android:id="@+id/btn_to_statusbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="StatusBar状态栏" />
+
     </LinearLayout>
 </ScrollView>

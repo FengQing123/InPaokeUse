@@ -8,18 +8,15 @@ package com.fq.inpaokeuse.util;
 
 public class Test {
     public static void main(String[] args) {
-        TestCodeBlock block1 = new TestCodeBlock();
-        block1.doMethod();
-
-        TestCodeBlock block2 = new TestCodeBlock();
-        block2.doMethod();
-    }
-
-    static {
-        System.out.println("---static---");
-    }
-
-    {
-        System.out.println("---non static---");
+        int[] array = {1, 2, 3, 4, 5, 6};
+        try {
+            int a = array[10];
+            System.out.println("aaaa" + a);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("finally");
+        }
+        System.out.println("last");
     }
 }

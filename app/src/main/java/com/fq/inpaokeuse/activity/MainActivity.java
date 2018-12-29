@@ -2,12 +2,14 @@ package com.fq.inpaokeuse.activity;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
 import com.fq.inpaokeuse.R;
+import com.fq.inpaokeuse.util.Logger;
 import com.fq.inpaokeuse.util.PhoneUtil;
 import com.fq.inpaokeuse.util.UIHelper;
 import com.fq.inpaokeuse.viewpager.ViewpagerActivity;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Logger.error(TAG, "onCreate");
 //        //设置没有标题
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        //设置全屏
@@ -33,25 +36,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Logger.error(TAG, "onSaveInstanceState1");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Logger.error(TAG, "onSaveInstanceState2");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Logger.error(TAG, "onRestoreInstanceState");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Logger.error(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Logger.error(TAG, "onPause");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Logger.error(TAG, "onStop");
+
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
+        Logger.error(TAG, "onDestroy");
         System.gc();
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        Log.e(TAG, "onCreate: 屏幕高度(不包含状态栏)=" + PhoneUtil.getScreenHeight());//1920
+        Log.e(TAG, "onWindowFocusChanged:屏幕高度(不包含状态栏)=" + PhoneUtil.getScreenHeight());//1920
+        Log.e(TAG, "onWindowFocusChanged:屏幕宽度=" + PhoneUtil.getScreenWidth());
+        Log.e(TAG, "onWindowFocusChanged:dpi=" + PhoneUtil.getPhoneDpi());
+
 
         View decorView = getWindow().getDecorView();
 
         Rect rect = new Rect();
         decorView.getWindowVisibleDisplayFrame(rect);
         int statusBarHeight = rect.top;
-        Log.e(TAG, "onWindowFocusChanged: 状态栏高度statusBarHeight=" + statusBarHeight);//60
+        Log.e(TAG, "onWindowFocusChanged:状态栏高度statusBarHeight=" + statusBarHeight);//60
 
         int decorViewHeight = decorView.getHeight();
-        Log.e(TAG, "onCreate: DecorView高度=" + decorViewHeight);//1920
+        Log.e(TAG, "onWindowFocusChanged: DecorView高度=" + decorViewHeight);//1920
 
         int contentTop = getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
         Log.e(TAG, "onWindowFocusChanged: 内容顶部contentTop=" + contentTop);//168
@@ -119,6 +165,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_constraint:
                 UIHelper.showActivity(this, ConstraintLayoutTestActivity.class);
+                break;
+            case R.id.btn_to_statusbar:
+                UIHelper.showActivity(this, StatusBarActivity.class);
                 break;
             default:
                 break;
