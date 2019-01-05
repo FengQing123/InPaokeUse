@@ -50,9 +50,8 @@
         <activity android:name=".activity.ThreadTestActivity" />
         <activity android:name=".activity.SwTestActivity" />
         <activity android:name=".activity.ConstraintLayoutTestActivity" />
-        <activity
-            android:name=".activity.StatusBarActivity"
-            android:theme="@style/HasNoTitle" />
+        <activity android:name=".activity.StatusBarActivity" />
+        <activity android:name=".activity.DrawLayoutActivity" />
     </application>
 
 </manifest>

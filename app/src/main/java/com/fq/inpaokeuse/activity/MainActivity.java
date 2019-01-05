@@ -166,8 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_constraint:
                 UIHelper.showActivity(this, ConstraintLayoutTestActivity.class);
                 break;
-            case R.id.btn_to_statusbar:
-                UIHelper.showActivity(this, StatusBarActivity.class);
+            case R.id.btn_to_drawlayout:
+                UIHelper.showActivity(this, DrawLayoutActivity.class);
                 break;
             default:
                 break;
