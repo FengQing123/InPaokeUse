@@ -28,17 +28,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.LoginActivity" />
-        <activity android:name=".activity.DefinedViewActivity" />
+        <activity android:name=".activity.DispatchTouchEventActivity" />
         <activity android:name=".activity.ZhiHuHeadActivity" />
         <activity
             android:name=".activity.AnimationActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.Animation3DActivity"></activity>
-        <activity android:name=".activity.ContactsListActivity"></activity>
+        <activity android:name=".activity.SmallTestActivity"></activity>
         <activity android:name=".activity.DefineScaleActivity"></activity>
         <activity android:name=".activity.GlideTestActivity"></activity>
         <activity android:name=".activity.UniversalImageLoaderTestActivity" />
-        <activity android:name=".activity.TouTiaoHeadActivity" />
+        <activity android:name=".activity.AppBarLayoutTestActivity" />
         <activity android:name=".activity.CameraActivity" />
         <activity android:name=".activity.PullShowActivity" />
         <activity android:name=".activity.GoMarketActivity" />
@@ -52,6 +52,7 @@
         <activity android:name=".activity.ConstraintLayoutTestActivity" />
         <activity android:name=".activity.StatusBarActivity" />
         <activity android:name=".activity.DrawLayoutActivity" />
+        <activity android:name=".activity.DialogFragmentActivity" />
     </application>
 
 </manifest>

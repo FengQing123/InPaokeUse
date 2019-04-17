@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_to_define_view:
-                UIHelper.showActivity(this, DefinedViewActivity.class);
+                UIHelper.showActivity(this, DispatchTouchEventActivity.class);
                 break;
             case R.id.btn_to_zhiHu:
                 UIHelper.showActivity(this, ZhiHuHeadActivity.class);
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 UIHelper.showActivity(this, Animation3DActivity.class);
                 break;
             case R.id.btn_to_contact_list:
-                UIHelper.showActivity(this, ContactsListActivity.class);
+                UIHelper.showActivity(this, SmallTestActivity.class);
                 break;
             case R.id.btn_to_define_scale:
                 UIHelper.showActivity(this, DefineScaleActivity.class);
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 UIHelper.showActivity(this, UniversalImageLoaderTestActivity.class);
                 break;
             case R.id.btn_to_toutiao:
-                UIHelper.showActivity(this, TouTiaoHeadActivity.class);
+                UIHelper.showActivity(this, AppBarLayoutTestActivity.class);
                 break;
             case R.id.btn_to_camera:
                 UIHelper.showActivity(this, CameraActivity.class);
@@ -168,6 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_to_drawlayout:
                 UIHelper.showActivity(this, DrawLayoutActivity.class);
+                break;
+            case R.id.btn_to_dialogfragment:
+                UIHelper.showActivity(this, DialogFragmentActivity.class);
                 break;
             default:
                 break;

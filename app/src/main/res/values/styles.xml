@@ -21,5 +21,11 @@
         <!--<item name="android:navigationBarColor">@android:color/transparent</item>-->
     </style>
 
+    <style name="dialog_style" parent="AlertDialog.AppCompat.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否浮在Window上-->
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
 
 </resources>

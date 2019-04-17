@@ -8,14 +8,13 @@ import com.fq.inpaokeuse.R;
 
 /**
  * @author fengqing
- * @date 2018/8/20
+ * @date 2018/2/1
  */
 
-public class DefinedViewActivity extends AppCompatActivity {
-
+public class SmallTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_defined_view);
+        setContentView(R.layout.activity_contacts_list);
     }
 }

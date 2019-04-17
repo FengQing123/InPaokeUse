@@ -40,4 +40,6 @@ dependencies {
     //搜索框
     implementation 'com.carson_ho:SearchLayout:1.0.1'
     implementation project(':viewpagerLibrary')
+    //阴影
+    implementation 'com.github.devlight.shadowlayout:library:1.0.2'
 }
