@@ -10,29 +10,34 @@
         android:background="@color/colorAccent">
 
         <com.fq.inpaokeuse.widget.DispatchRelativeLayoutTwo
+            android:id="@+id/rl_dispatch_two"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@color/colorPrimaryDark">
 
-            <com.fq.inpaokeuse.widget.DispatchTextView
-                android:id="@+id/tv_dispatch"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@color/colorPrimary"
-                android:visibility="invisible" />
+            <com.fq.inpaokeuse.widget.DispatchButton
+                android:id="@+id/btn_dispatch"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:visibility="visible" />
 
             <com.fq.inpaokeuse.widget.DispatchImageView
                 android:id="@+id/image_dispatch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_toRightOf="@+id/btn_dispatch"
                 android:src="@mipmap/ic_launcher"
                 android:visibility="visible" />
 
-            <com.fq.inpaokeuse.widget.DispatchButton
-                android:id="@+id/btn_dispatch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible" />
+            <com.fq.inpaokeuse.widget.DispatchTextView
+                android:id="@+id/tv_dispatch"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_toRightOf="@+id/image_dispatch"
+                android:background="@color/colorPrimary"
+                android:text="TextView"
+                android:visibility="visible" />
 
         </com.fq.inpaokeuse.widget.DispatchRelativeLayoutTwo>
     </com.fq.inpaokeuse.widget.DispatchRelativeLayoutOne>

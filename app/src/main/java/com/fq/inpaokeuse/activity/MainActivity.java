@@ -1,8 +1,13 @@
 package com.fq.inpaokeuse.activity;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         Logger.error(TAG, "onRestoreInstanceState");
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        showNotification();
     }
 
     @Override
@@ -121,8 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_3d_animation:
                 UIHelper.showActivity(this, Animation3DActivity.class);
                 break;
-            case R.id.btn_to_contact_list:
-                UIHelper.showActivity(this, SmallTestActivity.class);
+            case R.id.btn_to_view:
+                UIHelper.showActivity(this, ViewTestActivity.class);
                 break;
             case R.id.btn_to_define_scale:
                 UIHelper.showActivity(this, DefineScaleActivity.class);
@@ -175,5 +186,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    private void showNotification() {
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, ViewTestActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
+                .setSmallIcon(R.drawable.icon)
+                .setContentTitle("Hello World")
+                .setContentText("Show me the world")
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent);
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(1, builder.build());
+
     }
 }

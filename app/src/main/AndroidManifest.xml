@@ -34,7 +34,7 @@
             android:name=".activity.AnimationActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.Animation3DActivity"></activity>
-        <activity android:name=".activity.SmallTestActivity"></activity>
+        <activity android:name=".activity.ViewTestActivity"></activity>
         <activity android:name=".activity.DefineScaleActivity"></activity>
         <activity android:name=".activity.GlideTestActivity"></activity>
         <activity android:name=".activity.UniversalImageLoaderTestActivity" />

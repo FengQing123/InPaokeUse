@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fq.inpaokeuse.R;
@@ -27,6 +28,28 @@ public class DispatchTouchEventActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispatch_view);
+
+        RelativeLayout mRelayTwo = findViewById(R.id.rl_dispatch_two);
+        mRelayTwo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.e(TAG, "RelayoutTwo:OnTouch: down");
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.e(TAG, "RelayoutTwo:OnTouch: move");
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.e(TAG, "RelayoutTwo:OnTouch: up");
+                        break;
+                }
+                return false;
+            }
+        });
+
+
         Button mBtn = findViewById(R.id.btn_dispatch);
         mBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -43,7 +66,7 @@ public class DispatchTouchEventActivity extends AppCompatActivity {
                         Log.e(TAG, "Button:OnTouch: up");
                         break;
                 }
-                return false;
+                return true;
             }
         });
 
