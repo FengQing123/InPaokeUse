@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         showNotification();
+//        testThreadLocal();
     }
 
     @Override
@@ -203,5 +204,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1, builder.build());
 
+    }
+
+
+    /**
+     * ThreadLocal的简单测试
+     */
+    private void testThreadLocal() {
+        final ThreadLocal<Boolean> mThreadLocal = new ThreadLocal<>();
+        mThreadLocal.set(true);
+        Logger.error(TAG, "Thread[#main] threadLocal=" + mThreadLocal.get());
+
+        new Thread("Thread[#1]") {
+            @Override
+            public void run() {
+                mThreadLocal.set(false);
+                Logger.error(TAG, "Thread[#1] threadLocal=" + mThreadLocal.get());
+
+            }
+        }.start();
+
+        new Thread("Thread[#2]") {
+            @Override
+            public void run() {
+                Logger.error(TAG, "Thread[#2] threadLocal=" + mThreadLocal.get());
+
+            }
+        }.start();
     }
 }
