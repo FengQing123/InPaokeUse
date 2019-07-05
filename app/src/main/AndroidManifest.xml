@@ -53,6 +53,11 @@
         <activity android:name=".activity.StatusBarActivity" />
         <activity android:name=".activity.DrawLayoutActivity" />
         <activity android:name=".activity.DialogFragmentActivity" />
+        <activity android:name=".activity.ServiceTestActivity" />
+
+        <service android:name=".activity.ServiceTestActivity$LocalIntentService"/>
+
+
     </application>
 
 </manifest>

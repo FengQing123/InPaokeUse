@@ -184,6 +184,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_dialogfragment:
                 UIHelper.showActivity(this, DialogFragmentActivity.class);
                 break;
+            case R.id.btn_to_service:
+                UIHelper.showActivity(this, ServiceTestActivity.class);
+                break;
             default:
                 break;
         }
