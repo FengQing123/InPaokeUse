@@ -1,6 +1,8 @@
 package com.fq.inpaokeuse.util;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -85,4 +87,45 @@ public class ImagUtil {
         }
         return dst;
     }
+
+    /**
+     * 像素压缩图片，适应ImageView
+     *
+     * @param res
+     * @param resId
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
+    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId, int reqWidth, int reqHeight) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        //设置Options的参数inJustDecodeBounds为true
+        options.inJustDecodeBounds = true;
+        //加载图片，这里只会解析图片的原始图片宽高信息，并不会真正的去加载图片
+        BitmapFactory.decodeResource(res, resId);
+        //计算inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+        //使用设置后的inSampleSize加载图片
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        //原始图片的宽高
+        int width = options.outWidth;
+        int height = options.outHeight;
+        int inSampleSize = 1;
+
+        if (width > reqWidth || height > reqHeight) {
+            int halfWidth = width / 2;
+            int halfHeight = height / 2;
+            while ((halfWidth / inSampleSize) >= reqWidth && (halfHeight / inSampleSize) >= reqHeight) {
+                inSampleSize *= 2;
+            }
+        }
+
+        return inSampleSize;
+    }
+
+
 }

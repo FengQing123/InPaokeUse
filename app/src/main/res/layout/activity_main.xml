@@ -169,5 +169,12 @@
             android:onClick="onClick"
             android:text="Service的使用" />
 
+        <Button
+            android:id="@+id/btn_to_image_loader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="缓存的使用" />
+
     </LinearLayout>
 </ScrollView>

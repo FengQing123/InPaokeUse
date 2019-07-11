@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,11 @@ import com.fq.inpaokeuse.util.PhoneUtil;
 import com.fq.inpaokeuse.util.UIHelper;
 import com.fq.inpaokeuse.viewpager.ViewpagerActivity;
 import com.fq.inpaokeuse.viewpager.WeiboViewPagerActivity;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author fengqing
@@ -187,6 +193,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_to_service:
                 UIHelper.showActivity(this, ServiceTestActivity.class);
                 break;
+            case R.id.btn_to_image_loader:
+                UIHelper.showActivity(this, ImageLoaderActivity.class);
+                break;
             default:
                 break;
         }
@@ -234,5 +243,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }.start();
+    }
+
+    /**
+     * 4中线程池的典型使用方法
+     */
+    private void testThreadPool() {
+        Runnable command = new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(2000);
+            }
+        };
+
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(4);
+        fixedThreadPool.submit(command);
+
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        cachedThreadPool.submit(command);
+
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(4);
+        //2000ms后执行command
+        scheduledThreadPool.schedule(command, 2000, TimeUnit.MILLISECONDS);
+        //延迟10ms后，每隔1000ms执行一次command
+        scheduledThreadPool.scheduleAtFixedRate(command, 10, 1000, TimeUnit.MILLISECONDS);
+        //延迟10ms后执行command,再下一个任务开始执行前需等上一个任务结束1000ms再开始执行
+        scheduledThreadPool.scheduleWithFixedDelay(command, 10, 1000, TimeUnit.MILLISECONDS);
+
+        ExecutorService singleThreadPool = Executors.newSingleThreadExecutor();
+        singleThreadPool.submit(command);
     }
 }

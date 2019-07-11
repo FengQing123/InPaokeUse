@@ -55,7 +55,7 @@
         <activity android:name=".activity.DialogFragmentActivity" />
         <activity android:name=".activity.ServiceTestActivity" />
 
-        <service android:name=".activity.ServiceTestActivity$LocalIntentService"/>
+        <service android:name=".activity.ServiceTestActivity$LocalIntentService" />
 
 
     </application>
